@@ -39,6 +39,12 @@
                         </a>
                         <ul class="dropdown-menu" role="menu">
                             <li>
+                                <a href="{{ route('users.edit', Auth::id()) }}">
+                                    编辑资料
+                                </a>
+                            </li>
+
+                            <li>
                                 <a href="{{ route('logout') }}"
                                    onclick="event.preventDefault();document.getElementById('logout-form').submit();">退出登录</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST"
@@ -48,7 +54,7 @@
                             </li>
                         </ul>
                     </li>
-                @endguest
+                    @endguest
             </ul>
         </div>
     </div>
