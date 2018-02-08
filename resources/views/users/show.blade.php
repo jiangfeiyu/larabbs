@@ -12,16 +12,16 @@
                     <div class="media">
                         <div align="center">
                             <img class="thumbnail img-responsive"
-                                 src="{{$user->avatar}}"
+                                 src="https://fsdhubcdn.phphub.org/uploads/images/201709/20/1/PtDKbASVcz.png?imageView2/1/w/600/h/600"
                                  width="300px" height="300px">
                         </div>
                         <div class="media-body">
                             <hr>
                             <h4><strong>个人简介</strong></h4>
-                            <p>{{$user->introduction}}</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. </p>
                             <hr>
                             <h4><strong>注册于</strong></h4>
-                            <p>{{$user->created_at->diffForHumans()}}</p>
+                            <p>January 01 1901</p>
                         </div>
                     </div>
                 </div>
@@ -41,7 +41,11 @@
             {{-- 用户发布的内容 --}}
             <div class="panel panel-default">
                 <div class="panel-body">
-                    暂无数据 ~_~
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a href="#">Ta 的话题</a></li>
+                        <li><a href="#">Ta 的回复</a></li>
+                    </ul>
+                    @include('users._topics', ['topics' => $user->topics()->recent()->paginate(5)])
                 </div>
             </div>
 
