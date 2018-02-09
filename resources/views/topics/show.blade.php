@@ -44,6 +44,13 @@
                     @endcan
                 </div>
             </div>
+            {{-- 用户回复列表 --}}
+            <div class="panel panel-default topic-reply">
+                <div class="panel-body">
+                    @include('topics._reply_list', ['replies' => $topic->replies()->with('user')->get()])
+                    @includeWhen(Auth::check(), 'topics._reply_box', ['topic' => $topic])
+                </div>
+            </div>
         </div>
         <div class="col-lg-3 col-md-3 hidden-sm hidden-xs author-info">
             <div class="panel panel-default">
