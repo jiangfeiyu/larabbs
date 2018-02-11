@@ -2,6 +2,9 @@
 
 namespace App\Models;
 
+/**
+ * @property mixed topic
+ */
 class Reply extends Model
 {
     protected $fillable = ['content'];
