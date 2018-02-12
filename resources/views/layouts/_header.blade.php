@@ -20,11 +20,16 @@
         <div class="collapse navbar-collapse" id="app-navbar-collapse">
             <!-- Left Side Of Navbar -->
             <ul class="nav navbar-nav">
-                <li class="{{ active_class(if_route('topics.index')) }}"><a href="{{ route('topics.index') }}">话题</a></li>
-                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a href="{{ route('categories.show', 1) }}">分享</a></li>
-                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a href="{{ route('categories.show', 2) }}">教程</a></li>
-                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a href="{{ route('categories.show', 3) }}">问答</a></li>
-                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a href="{{ route('categories.show', 4) }}">公告</a></li>
+                <li class="{{ active_class(if_route('topics.index')) }}"><a href="{{ route('topics.index') }}">话题</a>
+                </li>
+                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 1))) }}"><a
+                            href="{{ route('categories.show', 1) }}">分享</a></li>
+                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 2))) }}"><a
+                            href="{{ route('categories.show', 2) }}">教程</a></li>
+                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 3))) }}"><a
+                            href="{{ route('categories.show', 3) }}">问答</a></li>
+                <li class="{{ active_class((if_route('categories.show') && if_route_param('category', 4))) }}"><a
+                            href="{{ route('categories.show', 4) }}">公告</a></li>
             </ul>
 
             <!-- Right Side Of Navbar -->
@@ -40,8 +45,10 @@
                     </li>
                     {{-- 消息通知标记 --}}
                     <li>
-                        <a href="{{ route('notifications.index') }}" class="notifications-badge" style="margin-top: -2px;">
-                            <span class="badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }} " title="消息提醒">
+                        <a href="{{ route('notifications.index') }}" class="notifications-badge"
+                           style="margin-top: -2px;">
+                            <span class="badge badge-{{ Auth::user()->notification_count > 0 ? 'hint' : 'fade' }} "
+                                  title="消息提醒">
                                 {{ Auth::user()->notification_count }}
                             </span>
                         </a>
@@ -55,6 +62,14 @@
                             {{ Auth::user()->name }} <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" role="menu">
+                            @can('manage_contents')
+                                <li>
+                                    <a href="{{ url(config('administrator.uri')) }}">
+                                        <span class="glyphicon glyphicon-dashboard" aria-hidden="true"></span>
+                                        管理后台
+                                    </a>
+                                </li>
+                            @endcan
 
                             <li>
                                 <a href="{{ route('users.show', Auth::id()) }}">

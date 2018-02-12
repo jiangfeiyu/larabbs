@@ -8,6 +8,7 @@ namespace App\Models;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Permission\Traits\HasRoles;
 
 /**
  * @property \Carbon\Carbon $created_at
@@ -16,6 +17,7 @@ use Illuminate\Support\Facades\Auth;
  */
 class User extends Authenticatable
 {
+    use HasRoles;
     use Notifiable {
         notify as protected laravelNotify;
     }
