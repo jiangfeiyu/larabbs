@@ -21,7 +21,7 @@ return array(
      *
      * @type string
      */
-    'title' => '后套',
+    'title' => '后台',
 
     /*
      * The path to your model config directory
@@ -61,7 +61,15 @@ return array(
     'menu' => [
         '用户与权限' => [
             'users',
+            'roles',
+            'permissions'
         ],
+        '内容管理' => [
+            'categories',
+            'topics',
+            'replies',
+        ],
+
     ],
 
     /*
@@ -140,5 +148,5 @@ return array(
      */
     'locales' => [],
 
-    'custom_routes_file' => app_path('Http/routes/administrator.php'),
+    #'custom_routes_file' => app_path('Http/routes/administrator.php'),
 );
